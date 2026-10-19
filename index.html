@@ -247,6 +247,37 @@
     .perks { list-style: none; margin-top: 16px; display: grid; gap: 8px; }
     .perks li::before { content: "✓"; color: var(--gold); font-weight: 700; margin-right: 10px; }
 
+
+    /* Holiday printables (M1ndseye) */
+    .promos { padding: 24px 0 72px; text-align: center; }
+    .promos .eyebrow { margin-bottom: 14px; }
+    .promos__brand { color: var(--gold); }
+    .promos__sub { color: var(--muted); max-width: 560px; margin: -16px auto 32px; }
+    .promos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+    .promo {
+      display: flex;
+      flex-direction: column;
+      color: inherit;
+      text-decoration: none;
+      background: rgba(36, 3, 8, 0.55);
+      border: 1px solid rgba(255, 220, 200, 0.14);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .promo:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35); }
+    .promo:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .promo__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: rgba(0, 0, 0, 0.25); }
+    .promo__body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .promo__tag { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .promo--halloween .promo__tag { color: #ffa24d; }
+    .promo--valentine .promo__tag { color: #ff9fb8; }
+    .promo--stpatty .promo__tag { color: #7fe0ae; }
+    .promo h3 { font-family: "Fraunces", serif; font-size: 21px; line-height: 1.2; }
+    .promo p { color: var(--muted); font-size: 14px; }
+    .promo__cta { margin-top: auto; padding-top: 6px; color: var(--gold); font-weight: 600; font-size: 14px; }
+    @media (max-width: 860px) { .promos__grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+
     @media (max-width: 860px) {
       .how__grid, .gentle { grid-template-columns: 1fr; text-align: center; }
       .perks { justify-items: center; }
@@ -375,6 +406,41 @@
       </div>
     </section>
 
+    <section class="promos" aria-labelledby="promos-title">
+      <p class="eyebrow">From the makers of Sant-A-Meter</p>
+      <h2 id="promos-title" class="how__title">Free holiday printables from <span class="promos__brand">M1ndseye</span></h2>
+      <p class="promos__sub">Screen-free mazes and reward tickets made by a dad for his own three kids. Free to download, all year long.</p>
+      <div class="promos__grid">
+        <a class="promo promo--halloween" href="https://m1ndseye.com/workbook/?utm_source=santameter&amp;utm_medium=referral&amp;utm_campaign=holiday_banners#halloween-maze" target="_blank" rel="noopener">
+          <img class="promo__img" src="https://m1ndseye.com/assets/ME_Sesame_Hol_Halloween_Landscape.jpg" alt="Halloween printable from M1ndseye" loading="lazy" onerror="this.remove()" />
+          <div class="promo__body">
+            <span class="promo__tag">Halloween · free</span>
+            <h3>One line. One big challenge.</h3>
+            <p>A free continuous-line jack-o'-lantern maze for pencil control and focus.</p>
+            <span class="promo__cta">Get the free maze →</span>
+          </div>
+        </a>
+        <a class="promo promo--valentine" href="https://m1ndseye.com/workbook/?utm_source=santameter&amp;utm_medium=referral&amp;utm_campaign=holiday_banners#reward-tickets" target="_blank" rel="noopener">
+          <img class="promo__img" src="https://m1ndseye.com/assets/ME_Sesame_Valentine_Landscape.jpg" alt="Valentine's Day printable from M1ndseye" loading="lazy" onerror="this.remove()" />
+          <div class="promo__body">
+            <span class="promo__tag">Valentine's Day · free</span>
+            <h3>Prizes that are moments, not stuff.</h3>
+            <p>Free printable reward tickets: a family adventure, picking dinner, one more story.</p>
+            <span class="promo__cta">Get the free tickets →</span>
+          </div>
+        </a>
+        <a class="promo promo--stpatty" href="https://m1ndseye.com/workbook/?utm_source=santameter&amp;utm_medium=referral&amp;utm_campaign=holiday_banners#shamrock-maze" target="_blank" rel="noopener">
+          <img class="promo__img" src="https://m1ndseye.com/assets/ME_Sesame_Hol_St_Patty_Landscape.jpg" alt="St. Patrick's Day printable from M1ndseye" loading="lazy" onerror="this.remove()" />
+          <div class="promo__body">
+            <span class="promo__tag">St. Patrick's Day · free</span>
+            <h3>Follow the line. Find your luck.</h3>
+            <p>A free continuous-line shamrock maze, disguised as St. Patrick's Day fun.</p>
+            <span class="promo__cta">Get the free maze →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <footer>
       <p>&copy; <span id="year">2026</span> Sant-A-Meter · getsantameter.com</p>
     </footer>
@@ -385,7 +451,7 @@
     // 1. Create a free form at https://formspree.io (sign up → New form).
     // 2. Paste its endpoint below, e.g. "https://formspree.io/f/abcdwxyz".
     // Sign-ups then arrive in your email and in your Formspree dashboard (exportable as CSV).
-    const FORM_ENDPOINT = "";
+    const FORM_ENDPOINT = "https://formspree.io/f/meaedpnr";
 
     const form = document.getElementById("signup");
     const msg = document.getElementById("signup-msg");
